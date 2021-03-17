@@ -1,0 +1,44 @@
+<div class="schedule_title" style="margin-top: 10px;color:black;border:none;">
+  <%= @schedule.subject %>
+</div>
+
+<div class="edit_schedule_wrapper">
+  <div class="ready_to_approve_teachers">
+    <div id="edit_title">Teachers Who Checked Schedule</div>
+    <% @get_checked_schedule_users.each do |checked_schedule_user| %>
+      <div class="checked_shcedule_users_wrapper">
+        <div class="checked_schedule_users_info">   
+          <%= image_tag(User.find(checked_schedule_user).avatar.variant(resize: '30x30' ),class:'user_entry_title_image')%>
+          <div id="checked_schedule_users_name">
+          <%= User.find(checked_schedule_user).last_name %>&nbsp;&nbsp;
+          <%= User.find(checked_schedule_user).first_name %>
+          </div>
+        </div>
+        <div class="checked_schedule_approve">
+          <%= form_with(method: :@next_switch, url:"/schedules/#{params[:id]}/next_users/#{User.find(checked_schedule_user).id}", local:true) do |f| %>
+            <div class="edit_delete_wrapper">
+            <%= f.check_box :check, :as => :boolean,checked:false,id:'user_approve' %>
+            <%= f.submit "Entry" ,class:"schedule-input",id:"submit-btn"%>
+            </div>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <div id="edit_title" style="width: 230px">Confirmed Teacher</div>
+
+    <div class="approved_schedule_users_info">
+      <% @get_confirmed_schedule_users.each do |confirmed_schedule_user| %>
+        <div class="approved_schedule_users_container">
+          <%= image_tag(User.find(confirmed_schedule_user).avatar.variant(resize: '30x30' ),class:'user_entry_title_image')%>
+          <div id="approved_schedule_users_name">
+          <%= User.find(confirmed_schedule_user).last_name %>
+          <%= User.find(confirmed_schedule_user).first_name %>&nbsp;&nbsp;先生<br>
+          </div>
+          </div>
+        <% end %>
+      </div>
+  </div>
+
+<%= link_to '戻る' ,nextschedules_path,id:"back" %>

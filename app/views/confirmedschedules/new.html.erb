@@ -1,0 +1,258 @@
+<div class="schedule_title">
+  <h1>Schedule Board</h1>
+</div>
+
+
+<div class="schedlues_wrapper">
+  <div class="new_schedule_wrapper">
+    <div class="date_today">
+      <%= @this_year %>年<%= @next_month%>月
+      <div class="date_next">
+        <%= link_to "#{@next_month - 1}月へ",confirmedschedules_path, method: :get %>
+      </div>
+    </div>
+
+
+
+    <table border="1" id="schedule_table">
+      <thead>
+        <tr class="sdate_name">
+          <th>月</th>
+          <th>火</th>
+          <th>水</th>
+          <th>木</th>
+          <th>金</th>
+          <th><span id="sat">土</span></th>
+          <th><span id="sun">日</span></th>
+        </tr>
+      </thead>
+      <tbody>
+
+        <tr>
+          <% 7.times do |x| %>
+          <td class="schedule-row">
+            <% @week_period.each do |period| %>
+            <% if x == (period -1).wday %>
+            <span id="period_date">
+              <%= period.day %>日
+            </span>
+
+            <% @schedule_all.each do |schedule| %>
+            <% if period == schedule.sdate.sdate %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
+            </div>
+            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <% 7.times do |x| %>
+          <td class="schedule-row">
+            <% @week_period2.each do |period| %>
+            <% if x == (period -1).wday %>
+            <span id="period_date">
+              <%= period.day %>日
+            </span>
+
+            <% @schedule_all.each do |schedule| %>
+            <% if period == schedule.sdate.sdate %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
+            </div>
+            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <% 7.times do |x| %>
+          <td class="schedule-row">
+            <% @week_period3.each do |period| %>
+            <% if x == (period -1).wday %>
+            <span id="period_date">
+              <%= period.day %>日
+            </span>
+
+            <% @schedule_all.each do |schedule| %>
+            <% if period == schedule.sdate.sdate %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
+            </div>
+            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+
+        <tr>
+          <% 7.times do |x| %>
+          <td class="schedule-row">
+            <% @week_period4.each do |period| %>
+            <% if x == (period -1).wday %>
+            <span id="period_date">
+              <%= period.day %>日
+            </span>
+
+            <% @schedule_all.each do |schedule| %>
+            <% if period == schedule.sdate.sdate %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
+            </div>
+            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+
+        <% if (@last_day4 + 1).month == @next_month %>
+        <tr>
+          <% 7.times do |x| %>
+          <td class="schedule-row">
+            <% @week_period5.each do |period| %>
+            <% if period.month == @next_month %>
+            <% if x == (period -1).wday %>
+            <span id="period_date">
+              <%= period.day %>日
+            </span>
+
+            <% @schedule_all.each do |schedule| %>
+            <% if period == schedule.sdate.sdate %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
+            </div>
+            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+
+            <% end %>
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+
+        <% if (@last_day5 + 1).month == @next_month %>
+        <tr>
+          <% 7.times do |x| %>
+          <td class="schedule-row">
+            <% @week_period6.each do |period| %>
+            <% if x == (period -1).wday %>
+            <span id="period_date">
+              <%= period.day %>日
+            </span>
+
+            <% @schedule_all.each do |schedule| %>
+            <% if period == schedule.sdate.sdate %>
+            <div class="display-schedule-wrapper"><button class="schedule-button"></button>
+              <div class="display-schedule"><%= schedule.subject %></div>
+            </div>
+            <div class="specify-schedule"><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %>
+
+              <%# confrimテーブルからcheckがtrueで、schedule_idが日付ごとのschedule_idと一致する複数行のuser_idたちを@usersに代入%>
+              <% @users = Confirm.where(check: 1, schedule_id: schedule.id).pluck(:user_id) %>
+              <%# 取得したユーザーidらの数を@lengthに代入%>
+              <% @length = @users.length %>
+              <%# ユーザーの数だけ繰り返す。nは0~@lengthが順番に実行される %>
+              <% @length.times do |n| %>
+              <%= User.find(@users[n]).last_name %>&nbsp;&nbsp;
+              <%= User.find(@users[n]).first_name %><br>
+              <% end %>
+
+            </div>
+            <% end %>
+            <% end %>
+
+            <% end %>
+            <% end %>
+          </td>
+          <% end %>
+        </tr>
+        <% end %>
+
+      </tbody>
+    </table>
+  </div>
+
+
+</div>
+<%= render "shared/schedule_footer"%>
