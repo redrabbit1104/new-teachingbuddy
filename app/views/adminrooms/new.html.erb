@@ -3,7 +3,7 @@
 <div class="message_wrapper">
   <%= image_tag('admin.png', :size => '200x200',id: 'user_chat_title_image', class: 'admin_border') %>
   <div class="new_user_chat_name">
-  <%= Admin.find(1).admin_last_name %>&nbsp;&nbsp;&nbsp;<%= Admin.find(1).admin_first_name %>
+  <%= Admin.find_by(admin_name:"admin").admin_last_name %>&nbsp;&nbsp;&nbsp;<%= Admin.find_by(admin_name:"admin").admin_first_name %>
   </div>
   <%=form_with model: @admin_room, url: adminrooms_path, local: true do |f|%>
     <input name="admin_room[admin_id]" type="hidden" value=<%= 1 %>>
