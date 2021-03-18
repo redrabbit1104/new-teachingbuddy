@@ -7,9 +7,6 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create, :destroy]
   end
   resources :adminrooms, only: [:new, :create, :destroy] do
-    member do
-      get 'adminmessages', to: 'adminmessages#index'
-    end
     resources :adminmessages, only: [:index, :create, :destroy]
   end
 
