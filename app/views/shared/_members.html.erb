@@ -2,7 +2,7 @@
 <div class="members">
   &nbsp;&nbsp;<b class="caption">Members&#9835;</b>
   
-  <% @users_except_current_user.each do |user| %>
+  <% @users.each do |user| %>
     <%# 現在のユーザーが持っているroomとそれぞれのユーザーが持っているroomの共通するroomがある場合、roomが生成されたのであるのでそのpathへlink。その他はroomが存在しないので新しくroomを生成するpathへ誘導 %>
     <% @current_user_room = RoomUser.all.where(user_id: current_user.id).pluck(:room_id) %>
     <% @target_user_room = RoomUser.all.where(user_id: user.id).pluck(:room_id) %>
