@@ -22,7 +22,7 @@ class AdminroomsController < ApplicationController
   def create
     @admin_room = AdminRoom.new(room_params)
     @admin_room.save
-    redirect_to adminroom_adminmessages_path(@admin_room)
+    redirect_to adminroom_adminmessages_path(adminroom_id:@admin_room.id)
   end
 
   def destroy
