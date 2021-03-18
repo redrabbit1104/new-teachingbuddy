@@ -1,10 +1,17 @@
 <span id="new_user_chat_title">New Chat</span> 
 
 <div class="message_wrapper">
+  <% if user_signed_in? %>
   <%= image_tag('admin.png', :size => '200x200',id: 'user_chat_title_image', class: 'admin_border') %>
   <div class="new_user_chat_name">
   <%= Admin.find_by(admin_name:"admin").admin_last_name %>&nbsp;&nbsp;&nbsp;<%= Admin.find_by(admin_name:"admin").admin_first_name %>
   </div>
+  <% elsif admin_signed_in? %>
+  <%= image_tag(@users.find(params[:format].to_i).avatar.variant(resize: '200x200'),id: 'user_chat_title_image') %>
+  <div class="new_user_chat_name">
+  <%= @users.find(params[:format].to_i).last_name %>&nbsp;&nbsp;&nbsp;<%= @users.find(params[:format].to_i).first_name %>
+  </div>
+  <% end %>
   <%=form_with model: @admin_room, url: adminrooms_path, local: true do |f|%>
     <input name="admin_room[admin_id]" type="hidden" value=<%= 1 %>>
     <input name="admin_room[user_id]" type="hidden" value=<%= params[:format].to_i%>>
