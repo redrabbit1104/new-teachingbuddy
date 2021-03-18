@@ -2,7 +2,8 @@ class AdminmessagesController < ApplicationController
   def index
     @users_except_current_user = User.where.not(id: current_user)
     @users = @users_except_current_user.page(params[:users_page]).per(6)
-    @adminroom = AdminRoom.find(params[:adminroom_id])
+    # @adminroom = AdminRoom.find(params[:adminroom_id])
+    @adminroom = AdminRoom.find(params[:id])
     @messages = @adminroom.admin_messages.includes(:user).order("created_at DESC")
 
     @target_adminroom = AdminRoom.all

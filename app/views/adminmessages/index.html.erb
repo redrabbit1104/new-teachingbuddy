@@ -5,7 +5,8 @@
     </div>
 
     <div class="chat_form_wrapper">
-      <%= form_with url:adminroom_adminmessages_path, class: 'chat_form', local: true do |f| %>
+      <%#= form_with url:adminroom_adminmessages_path, class: 'chat_form', local: true do |f| %>
+      <%= form_with url:adminmessages_adminroom_path, class: 'chat_form', local: true do |f| %>
       <div class="form_input">
       <label class="form_image">
          <span class="image_file">&#9834;</span>
