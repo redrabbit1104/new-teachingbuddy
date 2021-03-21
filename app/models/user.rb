@@ -8,11 +8,6 @@ class User < ApplicationRecord
   ValidEmail = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
   validates :email, presence: true, format: { with: ValidEmail }, uniqueness: true
 
-  with_options presence: true, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i } do
-    validates :password, confirmation: true, length: { minimum: 6 }
-    validates :password_confirmation, length: { minimum: 6 }
-  end
-
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
     validates :last_name
     validates :first_name
