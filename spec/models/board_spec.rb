@@ -26,6 +26,12 @@ RSpec.describe Board, type: :model do
         @board.valid?
         expect(@board.errors.full_messages).to include("Post is too long (maximum is 30 characters)")
       end
+      it 'userが紐づいてなければ登録出来ない' do
+        @board.user = nil
+        @board.valid?
+        expect(@board.errors.full_messages).to include('User must exist')
+        binding.pry
+      end
     end  
   end
 end
