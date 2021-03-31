@@ -30,7 +30,6 @@ RSpec.describe Board, type: :model do
         @board.user = nil
         @board.valid?
         expect(@board.errors.full_messages).to include('User must exist')
-        binding.pry
       end
     end  
   end
