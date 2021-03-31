@@ -3,10 +3,12 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  validates :user_name,:avatar, presence: true
+  validates :user_name, presence: true, length: { maximum: 6 }
+  validates :avatar, presence: true
 
   ValidEmail = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
-  validates :email, presence: true, format: { with: ValidEmail }, uniqueness: true
+  #uniqueness: { case_sensitive: false } -> falseにすることによって大文字と小文字の違いを区別しない。 TOM != tom
+  validates :email, presence: true, format: { with: ValidEmail }, uniqueness: { case_sensitive: false }
 
   with_options presence: true, format: { with: /\A[ぁ-んァ-ン一-龥]+\z/ } do
     validates :last_name
