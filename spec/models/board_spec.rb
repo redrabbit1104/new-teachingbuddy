@@ -17,7 +17,7 @@ RSpec.describe Board, type: :model do
     end
     context '掲示板の投稿がうまくいかないとき' do
       it 'postが存在しなければ投稿出来ない' do
-        @board.post =''
+        @board.post = ''
         @board.valid?
         expect(@board.errors.full_messages).to include("Post can't be blank")
       end
