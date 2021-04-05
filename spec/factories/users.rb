@@ -8,7 +8,7 @@ FactoryBot.define do
     first_name             { '秀樹' }
 
     after(:build) do |user|
-      user.avatar.attach(io: File.open('public/images/top.png'), filename: 'top.png')  # 画像は生成したインスタンス(itemモデル）に紐付いている必要がある->alterメソッドを利用
+      user.avatar.attach(io: File.open('public/images/top.png'), filename: 'top.png')
     end
   end
 end
