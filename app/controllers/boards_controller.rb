@@ -4,8 +4,6 @@ class BoardsController < ApplicationController
 
   def index
     #現在ログイン中のidを除いたユーザー情報を取得
-    # users = User.where.not(id: current_user)
-    # @users = users.page(params[:users_page]).per(6)
     @users_except_current_user = User.where.not(id: current_user)
     @users = @users_except_current_user.page(params[:users_page]).per(6)
 
@@ -29,8 +27,6 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    # users = User.where.not(id: current_user)
-    # @users = users.page(params[:page]).per(6)
     @users_except_current_user = User.where.not(id: current_user)
     @users = @users_except_current_user.page(params[:users_page]).per(6)
     

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   root to: "boards#index" 
-  resources :sdates
-  resources :boards
+  resources :boards, only: [:index, :edit, :create, :update, :destroy]
   resources :users, only: [:edit, :update]
   resources :rooms, only: [:new, :create, :destroy] do
     resources :messages, only: [:index, :create, :destroy]
@@ -27,8 +26,6 @@ Rails.application.routes.draw do
  
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
   }
   devise_for :users, controllers: {
     sessions: 'users/sessions',
@@ -36,7 +33,6 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'registrations/admins'
   get 'registrations/users'
 
 end
