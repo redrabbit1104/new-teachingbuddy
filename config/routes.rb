@@ -28,6 +28,7 @@ Rails.application.routes.draw do
     sessions: 'admins/sessions',
   }
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'

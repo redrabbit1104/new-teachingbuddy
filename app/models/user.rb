@@ -2,8 +2,8 @@ class User < ApplicationRecord
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
-         :recoverable, :rememberable, :validatable
-  validates :user_name, presence: true, length: { maximum: 6 }
+         :recoverable, :rememberable, :validatable, :omniauthable, omniauth_providers: [:facebook, :google_oauth2, :twitter]
+  validates :user_name, presence: true, length: { maximum: 10 }
   validates :avatar, presence: true
 
   ValidEmail = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i.freeze
@@ -25,5 +25,10 @@ class User < ApplicationRecord
   has_many :boards
   has_many :schedules
   has_many :checks
+  has_many :sns_credentials
+
+  def self.from_omniauth(auth)
+    sns = SnsCredential.where(provider: auth.provider, uid: auth.uid).first_or_create
+  end
 
 end
