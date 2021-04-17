@@ -32,9 +32,9 @@
     <%# <% end %> 
      <div class="sign_up_container">
         <p class="sign_up_with">Or sign in with</p>
-        <div class="sign_up_btns"><span class="sns_texts">Google</span></div>
-        <div class="sign_up_btns"><span class="sns_texts">Facebook</span></div>
-        <div class="sign_up_btns"><span class="sns_texts">Twitter</span></div>
+        <div class="sign_up_btns"><%= link_to 'Google', user_google_oauth2_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
+        <div class="sign_up_btns"><%= link_to 'Facebook', user_facebook_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
+        <div class="sign_up_btns"><%= link_to 'Twitter', user_twitter_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
       </div>     
 
   

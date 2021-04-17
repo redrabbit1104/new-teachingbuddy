@@ -33,6 +33,12 @@ class User < ApplicationRecord
      user_name: auth.info.name,
        email: auth.info.email
     )
+     # userが登録済みであるか判断
+    if user.persisted?
+      sns.user = user
+      sns.save
+  end
+  { user: user, sns: sns }
   end
 
 end
