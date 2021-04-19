@@ -1,13 +1,12 @@
 Rails.application.routes.draw do
   root to: "boards#index" 
-  resources :sdates
-  resources :boards
+  resources :boards, only: [:index, :edit, :create, :update, :destroy]
   resources :users, only: [:edit, :update]
-  resources :rooms, only: [:new, :create, :destroy] do
-    resources :messages, only: [:index, :create, :destroy]
+  resources :rooms, only: [:new, :create] do
+    resources :messages, only: [:index, :create]
   end
-  resources :adminrooms, only: [:new, :create, :destroy] do
-    resources :adminmessages, only: [:index, :create, :destroy]
+  resources :adminrooms, only: [:new, :create] do
+    resources :adminmessages, only: [:index, :create]
   end
 
   resources :schedules do
@@ -27,16 +26,14 @@ Rails.application.routes.draw do
  
   devise_for :admins, controllers: {
     sessions: 'admins/sessions',
-    passwords: 'admins/passwords',
-    registrations: 'admins/registrations'
   }
   devise_for :users, controllers: {
+    omniauth_callbacks: 'users/omniauth_callbacks',
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
 
-  get 'registrations/admins'
   get 'registrations/users'
 
 end

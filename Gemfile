@@ -70,6 +70,11 @@ gem 'mini_magick'
 gem 'image_processing', '~> 1.2'
 gem 'kaminari'
 gem "aws-sdk-s3", require: false
+gem 'omniauth-facebook'
+gem 'omniauth-google-oauth2'
+gem 'omniauth-twitter'
+gem "omniauth-rails_csrf_protection"
+gem 'omniauth', '~>1.9.1'
 
 group :production do
   gem 'unicorn', '5.4.1'

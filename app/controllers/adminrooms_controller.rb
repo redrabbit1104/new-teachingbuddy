@@ -1,7 +1,4 @@
 class AdminroomsController < ApplicationController
-
-  def index
-  end
   
   def new
     @users_except_current_user = User.where.not(id: current_user)
@@ -25,20 +22,10 @@ class AdminroomsController < ApplicationController
     redirect_to adminroom_adminmessages_path(AdminRoom.last.id)
   end
 
-  def destroy
-    @adminroom = AdminRoom.find(params[:id])
-    @adminroom.destroy
-    redirect_to root_path
-  end
-
 private
   
   def room_params
     params.require(:admin_room).permit(:admin_id,:user_id)
   end
-
-  # def room_admin_user_params
-  #   params.require(:room_admin_user).permit(:target_id, :user_id, :admin_id, :room_id)
-  # end
   
 end

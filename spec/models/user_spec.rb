@@ -10,8 +10,8 @@ RSpec.describe User, type: :model do
       it 'user_nameとemail, passwordとpassword_confirmationが存在すれば登録できる' do
         expect(@user).to be_valid
       end
-      it 'user_nameが6文字以下であれば登録できる' do
-        @user.user_name = 'aaaaaa'
+      it 'user_nameが10文字以下であれば登録できる' do
+        @user.user_name = 'aaaaaaaaaa'
         expect(@user).to be_valid
       end
       it 'passwordとpassword_confirmationが6文字以上であれば登録できる' do
@@ -31,6 +31,11 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Email can't be blank", "Email is invalid")
       end
+      it 'emailに@が含まれてないと登録できない' do
+        @user.email = '233'
+        @user.valid?
+        expect(@user.errors.full_messages).to include('Email is invalid')
+      end
       it 'passwordが空では登録できない' do
         @user.password = ''
         @user.valid?
@@ -41,10 +46,10 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include("Password confirmation doesn't match Password")
       end
-      it 'user_nameが7文字以上では登録できない' do
-        @user.user_name = 'abcdefg'
+      it 'user_nameが11文字以上では登録できない' do
+        @user.user_name = 'abcdefghijk'
         @user.valid?
-        expect(@user.errors.full_messages).to include("User name is too long (maximum is 6 characters)")
+        expect(@user.errors.full_messages).to include("User name is too long (maximum is 10 characters)")
       end
       it '重複したemailが存在する場合登録できない' do
         @user.save

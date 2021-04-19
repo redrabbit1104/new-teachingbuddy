@@ -27,12 +27,6 @@ class RoomsController < ApplicationController
     redirect_to room_messages_path(Room.last.id)
   end
 
-  def destroy
-    @room = Room.find(params[:id])
-    @room.destroy
-    redirect_to root_path
-  end
-
 private
   
   def room_params
