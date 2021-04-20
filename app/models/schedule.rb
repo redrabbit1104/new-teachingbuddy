@@ -6,4 +6,12 @@ class Schedule < ApplicationRecord
   validates :subject, presence: true, length: { maximum: 25 }
   validates :start_time, presence: true
   validates :end_time, presence: true
+
+  def self.search(search)
+    if search != ""
+      Schedule.where('subject LIKE(?)',"%#{search}%")
+    else
+      Schedule.all
+    end
+  end
 end

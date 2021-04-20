@@ -13,6 +13,10 @@ def index
   date_today
 end
 
+def search
+  @searched_schedule = Schedule.search(params[:keyword])
+end
+
 def update
   @set_schedule.update(edit_schedule_params)
   redirect_to new_schedule_path
