@@ -9,7 +9,7 @@
 # 本番環境
 
 公開中のサイト  
-<a href="http://54.248.212.236/" target="blank" style="text-decoration: none;">Teachingbuddy</a>
+<a href="http://54.248.212.236/" target="blank" style="text-decoration: none;">http://54.248.212.236/</a>
 
 テスト用のアカウント
 
