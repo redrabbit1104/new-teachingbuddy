@@ -6,7 +6,7 @@
 
 # 本番環境
 公開中のサイト  
-[https://teachingbuddy30932.herokuapp.com/](url)
+http://54.248.212.236/(url)
 
 
 テスト用のアカウント
