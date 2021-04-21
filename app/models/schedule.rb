@@ -10,8 +10,6 @@ class Schedule < ApplicationRecord
   def self.search(search)
     if search != ""
       Schedule.where('subject LIKE(?)',"%#{search}%")
-    else
-      Schedule.all
     end
   end
 end
