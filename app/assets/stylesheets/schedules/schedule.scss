@@ -402,3 +402,44 @@ input[type="date"] {
     display: inline-block;
   }
 }
+
+.search_contents_wrapper {
+  width: 450px;
+  height: 450px;
+  display: block;
+  margin: 90px 300px 50px 250px;
+}
+
+.search_title {
+  width: 450px;
+  display: block;
+  padding: 10px;
+  text-align: center;
+  font-size: large;
+}
+
+.subtitle_column {
+  display: flex;
+  li:first-child {
+    margin-left: 25px;
+  }
+  li:nth-child(2) {
+    margin-left: 75px;
+  }
+  li:nth-child(3) {
+    margin-left: 80px;
+  }
+}
+
+.search_contents {
+  width: 100%;
+  padding: 20px;
+  border: 1px solid black;
+  .column {
+    display: flex;
+    li {
+      margin-right: 10px;
+      margin-top: 10px;
+    }
+  }
+}

@@ -1,2 +1,11 @@
-
-<%= schedule.id%>
+<section class="search_section">
+  <nav class="search_columns">
+    <ul class="column">
+      <li><%= schedule.sdate.sdate %></li>
+      <li>|</li>
+      <li><%= schedule.start_time.to_s(:time) %>〜<%= schedule.end_time.to_s(:time) %></li>
+      <li>|</li>
+      <li><%= schedule.subject %></li>
+    </ul>
+  </nav>
+</section>

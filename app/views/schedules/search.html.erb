@@ -4,12 +4,22 @@
     <%= form.submit "検索", class: "search_btn" %>
   <% end %>
 </div>
-<div class="contents row">
 <% if @searched_schedule.present? %>
-  <% @searched_schedule.each do |schedule| %>
-    <%= render partial: "schedule", locals: { schedule: schedule } %>
+<div class="search_contents_wrapper">
+  <span class="search_title">
+  検索結果
+  </span>
+  <div class="search_contents">
+  <ul class="subtitle_column">
+    <li>Date</li>
+    <li>Time</li>
+    <li>Subject</li>
+  </ul>
+    <% @searched_schedule.each do |schedule| %>
+      <%= render partial: "schedule", locals: { schedule: schedule} %>
+    <% end %>
+  <% elsif %>
+    <%= render template: "confirmedschedules/index" %>
   <% end %>
-<% elsif %>
-  <%= render template: "confirmedschedules/index" %>
-<% end %>
+  </div>
 </div>
