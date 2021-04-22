@@ -37,7 +37,6 @@ class ConfirmsController < ApplicationController
     end
 end
 
-
   private
   def confirms_params
     params.permit(:check).merge(admin_id: current_admin.id, schedule_id: params[:id], user_id: params[:user_id])

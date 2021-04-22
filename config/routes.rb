@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   end
 
   resources :schedules do
+    collection do
+      get 'search'
+    end
     resources :checks, only: [:create,:update]
     member do
       get 'preview'
