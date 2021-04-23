@@ -50,6 +50,8 @@ class BoardsController < ApplicationController
 
   def destroy
     @board.destroy
+    SendmailMailer.welcome_email(@board.user).deliver
+    # NotificationMailer.send_when_signup(@user).deliver
     redirect_to root_path
   end
 
