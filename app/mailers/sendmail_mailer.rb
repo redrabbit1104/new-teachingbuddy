@@ -1,9 +1,8 @@
 class SendmailMailer < ApplicationMailer
 
-  def welcome_email(user)
-    @user =  user
-    @url  = 'http://localhost:3000/'
-    # mail(to: @user.email, subject: '私の素敵なサイトへようこそ')
-    mail(to:'s86.jung.sangjin@gmail.com', subject: '私の素敵なサイトへようこそ')
+  def notify_schedule_email(user)
+    @user_last_name =  user.last_name
+    @url  = 'http://54.248.212.236/'
+    mail(to:'s86.jung.sangjin@gmail.com', subject: "【#{@user_last_name}様】確定したスケジュールのお知らせ")
   end
 end

@@ -8,7 +8,7 @@ class ConfirmsController < ApplicationController
            @switch = "post"
            Confirm.create(confirms_params)
            @user = User.find(params[:user_id])
-           SendmailMailer.welcome_email(@user).deliver
+           SendmailMailer.notify_schedule_email(@user).deliver
            redirect_to preview_schedule_path
         else
            redirect_to preview_schedule_path
@@ -27,7 +27,7 @@ class ConfirmsController < ApplicationController
       if params[:check].to_i == 1
          @next_switch = "post"
          Confirm.create(confirms_params)
-         SendmailMailer.welcome_email(@user).deliver
+         SendmailMailer.notify_schedule_email(@user).deliver
          redirect_to next_preview_schedule_path
       else
          redirect_to next_preview_schedule_path
