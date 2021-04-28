@@ -10,19 +10,13 @@
     <title>Teachingbuddy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# font-awesomeの導入 %>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js"
-        integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous">
-    </script>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application' , media: 'all' , 'data-turbolinks-track'=> 'reload' %>
     <%= javascript_pack_tag 'application' %>
-    <%# <%= javascript_include_tag 'application' %>
 </head>
 
 <body>
-    <div class="main_wrapper">
-        <div class="side_footer_wrapper">
+    <div class="index_container">
+        <section class="side_menu_wrapper">
             <div class="side_bar">
                 <div class="login_wrapper">
                     <div class="school_name">
@@ -99,12 +93,14 @@
             </div>
             <%= render "shared/members" %>
 
-        </div>
-        <div class="main_contents">
+        </section>
+        <section class="display_contents_wrapper">
             <%= yield %>
 
-        </div>
-        <%= render "shared/index_footer" %>
+        </section>
+        <section class="index_footer">
+            <%= render "shared/footer" %>
+        </section>
     </div>
 
     <script language="javascript" type="text/javascript">

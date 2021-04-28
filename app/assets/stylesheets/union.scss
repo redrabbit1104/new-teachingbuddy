@@ -1,4 +1,23 @@
 $mColor: rgb(241, 119, 78);
+$fcolor: rgb(247, 158, 158);
+
+//アプリのレイアウト
+
+.side_menu_wrapper {
+  float: left;
+  width: 390px;
+  height: 628px;
+}
+
+.display_contents_wrapper {
+  width: calc(100vw - 390px);
+  height: 628px;
+  float: left;
+  border-left: 1px solid;
+}
+
+/* ここからフッター画面 */
+
 .board_title {
   text-align: center;
   color: $mColor;
@@ -961,16 +980,6 @@ h1 {
   }
 }
 
-$fcolor: rgb(247, 158, 158);
-.body {
-  height: 1000px;
-}
-
-.main_wrapper {
-  min-height: 100%;
-  display: block;
-}
-
 .header_wrapper {
   width: 100vw;
   height: 100px;
@@ -1396,24 +1405,6 @@ $fcolor: rgb(247, 158, 158);
   grid-row: 1/2;
 }
 
-/* side_barとboardをflexboxにする */
-
-.main_wrapper {
-  width: 100vw;
-  clear: both;
-}
-
-.main_wrapper:after {
-  display: block;
-  clear: both;
-}
-
-.side_footer_wrapper {
-  float: left;
-  height: 100vh;
-  width: 390px;
-}
-
 /* ここからサイド画面 */
 
 .side_bar {
@@ -1629,19 +1620,6 @@ $fcolor: rgb(247, 158, 158);
 
 .menu_lists:hover {
   opacity: 0.5;
-}
-
-/* ここからフッター画面 */
-
-.side_footer_wrapper {
-  height: 628px;
-}
-
-.main_contents {
-  width: calc(100vw - 390px);
-  height: 628px;
-  float: left;
-  border-left: 1px solid;
 }
 
 /* registration.html.erbレイアウトのbodyタグのサイズ */
