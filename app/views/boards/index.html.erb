@@ -1,60 +1,62 @@
-<div class="board_title">
-    <h1>Bullentin Board</h1>
-</div>
+<section class="title_wrapper">
+  <div class="title">
+      <h1>Bullentin Board</h1>
+  </div>
+  
+  <div class="date_title">
+      <%= @this_year %>年
+      <%= @this_month %>月
+      <%= @this_day %>日 (<span class="wday"><%= @this_wday%></span>)
+  </div>
+</section>
 
-<div class="date_today">
-    <%# 後で曜日の色を土、日の場合は変える処理をする %>
-    <%= @this_year %>年
-    <%= @this_month %>月
-    <%= @this_day %>日 (<span class="wday">
-        <%= @this_wday%>
-    </span>)
-</div>
+<section class="table_wrapper">
+  <table class="board_table">
+      <thead>
+          <tr>
+              <th id="board_name">Name</th>
+              <th id="board_date">Date</th>
+              <th id="board_memo">Memo</th>
+              <th id="board_edit">Edit</th>
+              <th id="board_delete">Delete</th>
+          </tr>
+      </thead>
+      <tbody>
+          <% @boards.each do |board| %>
+          <tr>
+              <td>
+                  <%= image_tag(board.user.avatar.variant(resize: '30x30' ),class:'board_user_name_image') %>
+                  <span class=board_user_name><%= board.user.last_name %></span>
+              </td>
+              <td>
+                  <%= board.created_at.strftime('%Y年%m月%d日') %>
+              </td>
+              <td>
+                  <%= board.post %>
+              </td>
+              <td>
+                  <% if user_signed_in? && current_user.id == board.user.id %>
+                  <%= link_to '修正' , edit_board_path(board.id), method: :get, id:'edit_submit ' %>
+                  <% end %>
+              </td>
+          
+              <td>
+                  <% if user_signed_in? && current_user.id == board.user.id %>
+                  <%= link_to '削除' , board_path(board.id), method: :delete, id:'edit_delete ' %>
+                  <% end %>
+              </td>
+          </tr>
+          
+          <% end %>
+          
+          <tr id="list">
+          </tr>
+          
+      </tbody>
+  </table>
+  <%=paginate @boards%>
 
-<table class="table_wrapper" border="1" id="targetTable">
-    <thead>
-        <tr>
-            <th id="board_name">Name</th>
-            <th id="board_date">Date</th>
-            <th id="board_memo">Memo</th>
-            <th id="board_edit">Edit</th>
-            <th id="board_delete">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @boards.each do |board| %>
-        <tr>
-            <td>
-                <%= image_tag(board.user.avatar.variant(resize: '30x30' ),class:'board_user_name_image') %>
-                <span class=board_user_name><%= board.user.last_name %></span>
-            </td>
-            <td>
-                <%= board.created_at.strftime('%Y年%m月%d日') %>
-            </td>
-            <td>
-                <%= board.post %>
-            </td>
-            <td>
-                <% if user_signed_in? && current_user.id == board.user.id %>
-                <%= link_to '修正' , edit_board_path(board.id), method: :get, id:'edit_submit ' %>
-                <% end %>
-            </td>
-
-            <td>
-                <% if user_signed_in? && current_user.id == board.user.id %>
-                <%= link_to '削除' , board_path(board.id), method: :delete, id:'edit_delete2 ' %>
-                <% end %>
-            </td>
-        </tr>
-
-        <% end %>
-
-        <tr id="list">
-        </tr>
-
-    </tbody>
-</table>
-<%=paginate @boards%>
+</section>
 
 
 <% if user_signed_in? %>
