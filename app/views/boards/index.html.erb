@@ -6,7 +6,7 @@
   <div class="date_title">
       <%= @this_year %>年
       <%= @this_month %>月
-      <%= @this_day %>日 (<span class="wday"><%= @this_wday%></span>)
+      <%= @this_day %>日 (<%= @this_wday%>)
   </div>
 </section>
 
@@ -36,13 +36,13 @@
               </td>
               <td>
                   <% if user_signed_in? && current_user.id == board.user.id %>
-                  <%= link_to '修正' , edit_board_path(board.id), method: :get, id:'edit_submit ' %>
+                  <%= link_to '修正' , edit_board_path(board.id), method: :get, class:'edit_comment' %>
                   <% end %>
               </td>
           
               <td>
                   <% if user_signed_in? && current_user.id == board.user.id %>
-                  <%= link_to '削除' , board_path(board.id), method: :delete, id:'edit_delete ' %>
+                  <%= link_to '削除' , board_path(board.id), method: :delete, class:'delete_comment' %>
                   <% end %>
               </td>
           </tr>
@@ -60,17 +60,15 @@
 
 
 <% if user_signed_in? %>
-<section id="comment">
-    <div class="comment_wrapper">
+<section class="comment_wrapper">
+    <div class="comment_title">
         <h1>Leave a comment</h1>
     </div>
-    <%# request.path_infoで現在のパス情報を取得、@board.idにはset_boardメソッドで定義した@boardのid情報が入る %>
-    <%=form_with url: "/boards" , method: :post, id: "form" do |form| %>
-    <%= form.text_field :post, id: "post" , placeholder:"コメントを入力してください",maxlength:"46",autofocus: true
-                        %>
-    <%= form.submit ' 投稿する' , id: "submit" %>
+    <%=form_with url: "/boards" , method: :post, class: 'comment_form' do |form| %>
+       <%= form.text_field :post, class: 'input_comment' , placeholder:"コメントを入力してください",maxlength:"46",autofocus: true %>
+       <%= form.submit ' 投稿する' , class: "submit_comment" %>
+       <%= link_to '更新する' ,root_path,class:"update_comment" %>
     <% end %>
-    <%= link_to '更新する' ,root_path,id:"refresh" %>
 </section>
 
 <% end %>

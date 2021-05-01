@@ -41,7 +41,7 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-//機能名&今日の日付を表示するstyle
+//掲示板のテーブル
 
 .title {
   color: $title_color;
@@ -73,6 +73,29 @@ $fcolor: rgb(247, 158, 158);
     & td {
       text-align: center;
       border: 1px solid;
+      .edit_comment {
+        padding: 6px 10px 0px 10px;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      .delete_comment {
+        padding: 6px 10px 0px 10px;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+      .board_user_name_image {
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+      }
+
+      .board_user_name {
+        display: inline-block;
+        height: 25px;
+        padding-top: 1px;
+      }
       &:first-child {
         width: 130px;
         height: 35px;
@@ -97,24 +120,27 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-#comment {
+#list {
+  display: none;
+}
+
+//掲示板のコメント
+
+.comment_wrapper {
   width: 500px;
-  text-align: center;
   margin: 10px auto 30px;
-  padding: 0 auto;
-  clear: both;
-  & .comment_wrapper {
+  & .comment_title {
     margin-bottom: 10px;
+    text-align: center;
     & h1 {
       width: 150px;
       margin: 0 auto;
       border-bottom: 1px solid;
     }
   }
-  & #form {
-    height: 20px;
+  & .comment_form {
     float: left;
-    & #post {
+    & .input_comment {
       border: 1px solid;
       width: 300px;
       text-align: left;
@@ -123,9 +149,8 @@ $fcolor: rgb(247, 158, 158);
         background-color: #eee;
       }
     }
-    & #submit {
+    & .submit_comment {
       margin-left: 10px;
-      border: 1px solid;
       border-radius: 5px;
       padding: 5px;
       transition: color 1s;
@@ -135,156 +160,20 @@ $fcolor: rgb(247, 158, 158);
         color: white;
       }
     }
-  }
-  & #refresh {
-    height: 30px;
-    display: inline-block;
-    border-radius: 5px;
-    border: 1px solid;
-    padding: 5px;
-    transition: color 1s;
-    box-shadow: 2px 2px 3px;
-    &:hover {
-      background-color: black;
-      color: white;
+    & .update_comment {
+      display: inline-block;
+      transform: translate(0, 3px);
+      border-radius: 5px;
+      padding: 5px;
+      margin-left: 5px;
+      transition: color 1s;
+      box-shadow: 2px 2px 3px;
+      &:hover {
+        background-color: black;
+        color: white;
+      }
     }
   }
-}
-
-#list {
-  display: none;
-}
-
-#edit_post {
-  padding-top: 8px;
-  &:focus {
-    background-color: #eee;
-  }
-}
-
-#edit_submit {
-  padding: 6px 10px 0px 10px;
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-#edit_delete {
-  display: inline-block;
-  padding: 6px 10px 0px 10px;
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-#edit_delete2 {
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-#comment {
-  width: 500px;
-  text-align: center;
-  margin: 10px auto 30px;
-  padding: 0 auto;
-  clear: both;
-}
-
-#comment .comment_wrapper {
-  margin-bottom: 10px;
-}
-
-#comment .comment_wrapper h1 {
-  width: 150px;
-  margin: 0 auto;
-  border-bottom: 1px solid;
-}
-
-#comment #form {
-  height: 20px;
-  float: left;
-}
-
-#comment #form #post {
-  border: 1px solid;
-  width: 300px;
-  text-align: left;
-  padding: 5px 8px;
-}
-
-#comment #form #post:focus {
-  background-color: #eee;
-}
-
-#comment #form #submit {
-  margin-left: 10px;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 5px;
-  transition: color 1s;
-  box-shadow: 2px 2px 3px;
-}
-
-#comment #form #submit:hover {
-  background-color: black;
-  color: white;
-}
-
-#comment #refresh {
-  height: 30px;
-  display: inline-block;
-  border-radius: 5px;
-  border: 1px solid;
-  padding: 5px;
-  transition: color 1s;
-  box-shadow: 2px 2px 3px;
-}
-
-#comment #refresh:hover {
-  background-color: black;
-  color: white;
-}
-
-#list {
-  display: none;
-}
-
-#edit_post {
-  padding-top: 8px;
-}
-
-#edit_post:focus {
-  background-color: #eee;
-}
-
-#edit_submit {
-  padding: 6px 10px 0px 10px;
-}
-
-#edit_submit:hover {
-  opacity: 0.5;
-}
-
-#edit_delete {
-  display: inline-block;
-  padding: 6px 10px 0px 10px;
-}
-
-#edit_delete:hover {
-  opacity: 0.5;
-}
-
-.board_user_name_image {
-  width: 25px;
-  height: 25px;
-  border-radius: 50%;
-}
-
-.board_user_name {
-  display: inline-block;
-  height: 25px;
-  padding-top: 1px;
 }
 
 #user_chat_title,
