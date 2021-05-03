@@ -1,28 +1,28 @@
-<div class="board_title">
-    <h1>Bullentin Board</h1>
-</div>
+<section class="title_wrapper">
+  <div class="title">
+      <h1>Bullentin Board</h1>
+  </div>
 
-<div class="date_today">
-    <%# 後で曜日の色を土、日の場合は変える処理をする %>
-        <%= @this_year %>年
-            <%= @this_month %>月
-                <%= @this_day %>日 (<span class="wday">
-            <%= @this_wday%>
-          </span>)
-</div>
+  <div class="date_title">
+      <%= @this_year %>年
+      <%= @this_month %>月
+      <%= @this_day %>日 (<%= @this_wday%>)
+  </div>
+</section>
 
-<table class="table_wrapper" border="1" id="targetTable">
-    <thead>
+<section class="table_wrapper">
+  <table class="board_table">
+      <thead>
+          <tr>
+              <th id="board_name">Name</th>
+              <th id="board_date">Date</th>
+              <th id="board_memo">Memo</th>
+              <th id="board_edit">Edit</th>
+              <th id="board_delete">Delete</th>
+          </tr>
+      </thead>
+      <tbody>
         <tr>
-            <th id="board_name">Name</th>
-            <th id="board_date">Date</th>
-            <th id="board_memo">Memo</th>
-            <th id="board_edit">Edit</th>
-            <th id="board_delete">Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr id="edit_parent">
             <td>
                 <%= image_tag(@board.user.avatar.variant(resize: '30x30' ),class:'board_user_name_image') %>
                    <span class="board_user_name"><%= @board.user.user_name %></span>
@@ -30,25 +30,19 @@
             <td>
                 <%= @board.created_at.strftime('%Y年%m月%d日') %>
             </td>
-
             <%=form_with(model: @board, local: true)do |form| %>
-                <td>
-                    <%#= @board.post %>
-                        <%= form.text_field :post, id: "edit_post" ,maxlength:"46",autofocus: true %>
-                </td>
-                <td>
-                    <%#= link_to '修正' , edit_board_path(@board.id), method: :get, class:'#' %>
-                        <%= form.submit '修正' , id: "edit_submit" %>
-                </td>
-                <% end %>
-
-                    <td>
-                        <%= link_to '削除' , board_path(@board.id), method: :delete, id: "edit_delete" ,class:'#' %>
-                    </td>
+            <td>
+                <%= form.text_field :post, class: "edit_comment" ,maxlength:"46",autofocus: true %>
+            </td>
+            <td>
+                <%= form.submit '修正' , class: "edit_comment" %>
+            </td>
+            <% end %>
+            <td>
+               <%= link_to '削除' , board_path(@board.id), method: :delete, class: 'delete_comment', id: 'modify_delete_comment' %>
+            </td>
         </tr>
-        <tr id="list">
-        </tr>
-    </tbody>
-</table>
-
-<%= link_to '戻る' ,root_path,id:"back" %>
+      </tbody>
+  </table>
+  <%= link_to '戻る' ,root_path, id:"back" %>
+</section>

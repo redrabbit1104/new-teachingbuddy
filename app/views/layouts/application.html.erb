@@ -17,16 +17,17 @@
 <body>
     <div class="index_container">
         <section class="side_menu_wrapper">
-            <%= render "shared/menu" %>
+            <%= render "shared/side_menu" %>
             <%= render "shared/members" %>
         </section>
         <section class="display_contents_wrapper">
             <%= yield %>
         </section>
-        <section class="footer_wrapper">
-            <%= render "shared/footer" %>
-        </section>
+       
     </div>
+    <section class="footer_wrapper">
+       <%= render "shared/footer" %>
+    </section>
 
     <script language="javascript" type="text/javascript">
     function menu() {
