@@ -13,7 +13,7 @@ $fcolor: rgb(247, 158, 158);
   display: flex;
 }
 
-.side_menu_wrapper {
+.side_wrapper {
   width: 390px;
   height: 628px;
   border-right: 1px solid;
@@ -44,28 +44,57 @@ $fcolor: rgb(247, 158, 158);
 
 /* サイドメニュー */
 
-.side_bar {
+.side_menu_wrapper {
   width: 390px;
   height: 270px;
-  /* border: solid 1px; */
   padding: 5px 15px 20px 15px;
   border-bottom: rgba(0, 0, 0, 0.4) solid 1px;
-}
-
-.login_wrapper {
-  display: grid;
-  grid-template-columns: 150px 50px 70px 75px;
-  grid-template-rows: 1fr 10px;
-  grid-column-gap: 5px;
-  column-gap: 5px;
-  height: 50px;
-  border-bottom: 2px solid rgb(91, 91, 91);
-  cursor: pointer;
-}
-
-.school_name {
-  margin: 0 auto;
-  align-self: end;
+  .side_menu_upper {
+    display: grid;
+    grid-template-columns: 150px 50px 70px 75px;
+    grid-template-rows: 1fr 10px;
+    grid-column-gap: 5px;
+    column-gap: 5px;
+    height: 50px;
+    border-bottom: 2px solid rgb(91, 91, 91);
+    cursor: pointer;
+    .side_menu_logo {
+      margin: 0 auto;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+    .admin_sign_in {
+      align-self: end;
+      grid-column: 3/4;
+      grid-row: 1/2;
+      margin: 0 5px 4px 5px;
+      .admin_sign_in_link {
+        display: none;
+        &:hover {
+          opacity: 0.5;
+        }
+      }
+    }
+    .user_sign_in {
+      align-self: end;
+      grid-column: 3/4;
+      grid-row: 1/2;
+      margin: 0 5px 4px 5px;
+      .login:hover {
+        opacity: 0.5;
+      }
+    }
+    .user_sign_up {
+      align-self: end;
+      grid-column: 4/5;
+      grid-row: 1/2;
+      margin: 0 5px 4px 5px;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
 }
 
 #open_change {
@@ -85,32 +114,6 @@ $fcolor: rgb(247, 158, 158);
   width: 10px;
   height: 10px;
   margin: 0 0 12px 40px;
-}
-
-.school_name:hover {
-  opacity: 0.5;
-}
-
-.admin_container {
-  align-self: end;
-  grid-column: 3/4;
-  grid-row: 1/2;
-  margin: 0 5px 4px 5px;
-}
-
-.admin:hover {
-  opacity: 0.5;
-}
-
-.admin {
-  display: none;
-}
-
-.login_container {
-  align-self: end;
-  grid-column: 3/4;
-  grid-row: 1/2;
-  margin: 0 5px 4px 5px;
 }
 
 .user_name {
@@ -157,10 +160,6 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-.login:hover {
-  opacity: 0.5;
-}
-
 .logout:hover {
   opacity: 0.5;
 }
@@ -170,21 +169,6 @@ $fcolor: rgb(247, 158, 158);
   grid-column: 4/5;
   grid-row: 1/1;
   margin: 0 5px 4px 5px;
-}
-
-.logout:hover {
-  opacity: 0.5;
-}
-
-.regi_user {
-  align-self: end;
-  grid-column: 4/5;
-  grid-row: 1/2;
-  margin: 0 5px 4px 5px;
-}
-
-.regi_user:hover {
-  opacity: 0.5;
 }
 
 .circle_button {

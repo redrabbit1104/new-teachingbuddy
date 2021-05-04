@@ -1,14 +1,21 @@
-<div class="side_bar">
-  <div class="login_wrapper">
-      <div class="school_name">
-          <%= link_to image_tag("TeachingBuddy_logo.png", class:"teaching_logo"), "/" %>
+<section class="side_menu_wrapper">
+  <section class="side_menu_upper">
+      <div class="side_menu_logo">
+          <%= link_to image_tag("TeachingBuddy_logo.png"), "/" %>
       </div>
-  
+      
       <% unless user_signed_in? || admin_signed_in? %>
-      <div class="admin_container">
-          <%= link_to 'Sign In' , new_admin_session_path, class: 'admin' %>
+      <div class="admin_sign_in">
+          <%= link_to 'Sign In' , new_admin_session_path, class: 'admin_sign_in_link' %>
+      </div>
+      <div class="user_sign_in">
+        <%= link_to 'Sign In' , new_user_session_path,class: 'user_sign_in_link' %>
+      </div>
+      <div class="user_sign_up">
+        <%= link_to 'Sign Up' ,registrations_users_path %>
       </div>
       <% end %>
+  
       <% if user_signed_in? %>
       <div class="user_name">
           <div class="user_hover">
@@ -37,15 +44,10 @@
       <button id="close_change" onclick="user_change()">
           <span class="circle_button" style="background-color:red" title="管理者"></span>
       </button>
-      <div class="login_container">
-          <%= link_to 'Sign In' , new_user_session_path,class: 'login' %>
-      </div>
-      <div class="regi_user">
-          <%= link_to 'Sign Up' ,registrations_users_path %>
-      </div>
       <% end %>
-  </div>
-  <div class="menu_wrapper">
+  </section>
+
+  <section class="menu_wrapper">
       <nav class="menu_nav">
           <div class="menu_lists">
               &nbsp;&nbsp;<%= link_to '授業一覧' ,confirmedschedules_path %>
@@ -70,5 +72,5 @@
       <button type="button" class="page-btn-close" onclick="menu()">
           <h1 class="menu_name" style="font-weight:bold;">Menu&#9836;</h1>
       </button>
-  </div>
-</div>
+  </section>
+</section>
