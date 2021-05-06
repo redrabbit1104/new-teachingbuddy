@@ -29,15 +29,15 @@
         </section>
 
     <script language="javascript" type="text/javascript">
-        function menu() {
+        function toggle_menu() {
             document.querySelector('.menu_wrapper').classList.toggle('open');
         }
 
-        function user_change() {
+        function change_user_admin() {
             const admin = document.querySelector('.admin_sign_in_link')
             const login = document.querySelector('.user_sign_in_link')
-            const open = document.getElementById('open_change')
-            const close = document.getElementById('close_change')
+            const open = document.getElementById('user_to_admin_button')
+            const close = document.getElementById('admin_to_user_button')
             const circle_button = document.querySelector('.circle_button')
 
             if (admin.style.display == "none" && login.style.display == "block" && open.style.display == "block") {
@@ -52,7 +52,7 @@
                 close.style.display = "none";
             }
         }
-        window.onload = user_change;
+        window.onload = change_user_admin;
     </script>
     </body>
 </html>

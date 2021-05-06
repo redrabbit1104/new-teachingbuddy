@@ -67,7 +67,6 @@
     <%=form_with url: "/boards" , method: :post, class: 'comment_form' do |form| %>
        <%= form.text_field :post, class: 'input_comment' , placeholder:"コメントを入力してください",maxlength:"46",autofocus: true %>
        <%= form.submit ' 投稿する' , class: "submit_comment" %>
-       <%= link_to '更新する' ,root_path,class:"update_comment" %>
     <% end %>
 </section>
 

@@ -31,6 +31,7 @@ function board() {
                     `;
         list.insertAdjacentHTML("afterend", HTML);
         formText.value = " ";
+        location.reload();
       });
     e.preventDefault();
   });

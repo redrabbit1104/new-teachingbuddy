@@ -97,7 +97,7 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-#open_change {
+#user_to_admin_button {
   align-self: end;
   grid-column: 2/3;
   grid-row: 1/2;
@@ -106,7 +106,7 @@ $fcolor: rgb(247, 158, 158);
   margin: 0 0 12px 40px;
 }
 
-#close_change {
+#admin_to_user_button {
   display: none;
   align-self: end;
   grid-column: 2/3;
@@ -114,61 +114,6 @@ $fcolor: rgb(247, 158, 158);
   width: 10px;
   height: 10px;
   margin: 0 0 12px 40px;
-}
-
-.user_name {
-  align-self: end;
-  grid-column: 2/4;
-  grid-row: 1/2;
-  margin: 0 5px 4px 5px;
-  display: flex;
-}
-
-.user_img {
-  border-radius: 50%;
-  width: 30px;
-  height: 30px;
-  border: solid 2px rgb(244, 197, 87);
-  /* 角丸半径を50%にする(=円形にする) */
-  transform: translate(0, 7px);
-}
-
-.sir {
-  padding-top: 13px;
-}
-
-.admin_name {
-  align-self: end;
-  grid-column: 3/4;
-  grid-row: 1/2;
-  margin: 0 5px 4px 5px;
-}
-
-.admin_name:hover {
-  opacity: 0.5;
-}
-
-.user_name_link {
-  display: inline-block;
-  padding-top: 12px;
-  height: 20px;
-}
-
-.user_hover {
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-.logout:hover {
-  opacity: 0.5;
-}
-
-.logout {
-  align-self: end;
-  grid-column: 4/5;
-  grid-row: 1/1;
-  margin: 0 5px 4px 5px;
 }
 
 .circle_button {
@@ -179,6 +124,58 @@ $fcolor: rgb(247, 158, 158);
   border-radius: 50%;
   transform: translate(-5px, 0);
 }
+
+.side_menu_user_wrapper {
+  align-self: end;
+  grid-column: 2/4;
+  grid-row: 1/2;
+  margin: 0 5px 4px 5px;
+  display: flex;
+  .user_name {
+    &:hover {
+      opacity: 0.5;
+    }
+    .user_img {
+      border-radius: 50%;
+      width: 30px;
+      height: 30px;
+      border: solid 2px rgb(244, 197, 87);
+      /* 角丸半径を50%にする(=円形にする) */
+      transform: translate(0, 7px);
+    }
+    .edit_user_link {
+      display: inline-block;
+      padding-top: 12px;
+      height: 20px;
+    }
+  }
+  .sir {
+    padding-top: 13px;
+  }
+}
+
+.admin_name {
+  align-self: end;
+  grid-column: 3/4;
+  grid-row: 1/2;
+  margin: 0 5px 4px 5px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.sign_out {
+  align-self: end;
+  grid-column: 4/5;
+  grid-row: 1/1;
+  margin: 0 5px 4px 5px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+//メニュー
+//ここから
 
 .menu_wrapper {
   display: grid;
@@ -346,6 +343,7 @@ $fcolor: rgb(247, 158, 158);
   }
   & .comment_form {
     float: left;
+    margin-left: 80px;
     & .input_comment {
       border: 1px solid;
       width: 300px;
