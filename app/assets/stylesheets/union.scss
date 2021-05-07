@@ -43,6 +43,7 @@ $fcolor: rgb(247, 158, 158);
 }
 
 /* サイドメニュー */
+//サイトメニューupper
 
 .side_menu_wrapper {
   width: 390px;
@@ -174,10 +175,9 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-//メニュー
-//ここから
+//サイドメニュー
 
-.menu_wrapper {
+.side_menu {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 1fr 4fr;
@@ -189,55 +189,118 @@ $fcolor: rgb(247, 158, 158);
   padding: 5px 0 0 0;
   background-image: url("http://jintomo.sakura.ne.jp/portfolio/assets/img/side_bar.jpg");
   background-size: 100% 100%;
+  .page_btn {
+    grid-row: 1/2;
+    .menu_name {
+      margin-left: 5px;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  .menu_nav {
+    display: none;
+    .menu_lists {
+      border-bottom: dotted 1px;
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  &.open .menu_nav {
+    display: grid;
+    grid-template-columns: 140px;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+    grid-column-gap: 5px;
+    column-gap: 5px;
+    grid-row-gap: 0px;
+    row-gap: 0px;
+    height: 150px;
+    padding: 5px 0 0 12px;
+    width: 130px;
+    cursor: pointer;
+  }
 }
 
-.open .menu_nav {
+////サイドメニューmembers ここから
+
+.members {
   display: grid;
-  grid-template-columns: 140px;
-  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
-  grid-column-gap: 5px;
-  column-gap: 5px;
-  grid-row-gap: 0px;
-  row-gap: 0px;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px;
+  grid-template-rows: 20px 50px;
+  grid-column-gap: 15px;
+  column-gap: 10px;
+  grid-row-gap: 5px;
+  row-gap: 5px;
+  height: 120px;
+  width: 390px;
+  padding: 20px;
+}
+.pagination {
+  grid-column: 1/6;
+  grid-row: 3/4;
+  width: 390px;
+  padding-left: 90px;
+}
+
+.member_avatar {
+  width: 50px;
+  height: 50px;
+  grid-row: 2/3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.member_image {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 2px rgb(244, 197, 87);
+  &:hover {
+    opacity: 0.5;
+  }
+}
+.admin_chat {
+  display: grid;
+  grid-template-columns: 50px 50px 50px 50px 50px 50px;
+  grid-template-rows: 20px 50px 50px;
+  grid-column-gap: 15px;
+  column-gap: 10px;
+  grid-row-gap: 5px;
+  row-gap: 5px;
   height: 150px;
-  padding: 5px 0 0 12px;
-  width: 130px;
-  cursor: pointer;
+  width: 390px;
+  margin-top: 20px;
+  padding: 20px;
+  border-top: rgba(0, 0, 0, 0.4) solid 1px;
 }
 
-.open .menu_wrapper {
-  display: block;
-}
-
-.page-btn,
-.menu_nav {
-  display: none;
-}
-
-.page-btn-close,
-.menu_name {
+.create_admin_chatroom {
+  width: 50px;
+  height: 50px;
+  grid-row: 2/3;
   grid-column: 1/2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: solid 2px rgb(244, 197, 87);
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.admin_chatroom {
+  grid-row: 3/4;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
+.caption {
   grid-row: 1/2;
-  float: left;
-}
-
-.menu_name:hover {
-  opacity: 0.5;
-}
-
-.open .page-btn {
-  display: block;
-  grid-column: 1/2;
-  grid-row: 1/2;
-  float: left;
-}
-
-.menu_lists {
-  border-bottom: dotted 1px;
-}
-
-.menu_lists:hover {
-  opacity: 0.5;
 }
 
 //掲示板のテーブル
@@ -1366,85 +1429,6 @@ input[type="date"] {
 
 .hidden {
   display: none;
-}
-
-.members {
-  display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px 50px;
-  grid-template-rows: 20px 50px;
-  grid-column-gap: 15px;
-  column-gap: 10px;
-  grid-row-gap: 5px;
-  row-gap: 5px;
-  height: 120px;
-  width: 390px;
-  padding: 20px;
-}
-.pagination {
-  grid-column: 1/6;
-  grid-row: 3/4;
-  width: 390px;
-  padding-left: 90px;
-}
-
-.member_avatar {
-  width: 50px;
-  height: 50px;
-  grid-row: 2/3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.member_image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: solid 2px rgb(244, 197, 87);
-  &:hover {
-    opacity: 0.5;
-  }
-}
-.admin_chat {
-  display: grid;
-  grid-template-columns: 50px 50px 50px 50px 50px 50px;
-  grid-template-rows: 20px 50px 50px;
-  grid-column-gap: 15px;
-  column-gap: 10px;
-  grid-row-gap: 5px;
-  row-gap: 5px;
-  height: 150px;
-  width: 390px;
-  margin-top: 20px;
-  padding: 20px;
-  border-top: rgba(0, 0, 0, 0.4) solid 1px;
-}
-
-.create_admin_chatroom {
-  width: 50px;
-  height: 50px;
-  grid-row: 2/3;
-  grid-column: 1/2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: solid 2px rgb(244, 197, 87);
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-.admin_chatroom {
-  grid-row: 3/4;
-  &:hover {
-    opacity: 0.5;
-  }
-}
-
-.caption {
-  grid-row: 1/2;
 }
 
 /* registration.html.erbレイアウトのbodyタグのサイズ */

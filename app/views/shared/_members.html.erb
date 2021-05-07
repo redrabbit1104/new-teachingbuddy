@@ -1,62 +1,57 @@
 <% if user_signed_in? %>
-<div class="members">
-  &nbsp;&nbsp;<b class="caption">Members&#9835;</b>
-  
-  <% @users.each do |user| %>
-    <%# 現在のユーザーが持っているroomとそれぞれのユーザーが持っているroomの共通するroomがある場合、roomが生成されたのであるのでそのpathへlink。その他はroomが存在しないので新しくroomを生成するpathへ誘導 %>
-    <% @current_user_room = RoomUser.all.where(user_id: current_user.id).pluck(:room_id) %>
-    <% @target_user_room = RoomUser.all.where(user_id: user.id).pluck(:room_id) %>
-    <% @both_room = @current_user_room & @target_user_room %>
-
-    <div class="member_avatar">
-    <%# @current_user_roomに何も無ければ新規チャットルームのリンクが現れる %>
-    <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_room_path(user.id) if user.avatar.attached? && @current_user_room.empty? %>
-    <%# @current_user_roomの配列の要素の数、つまり@current_user_roomを全てループさせる。i=0~lengthまで %>
-    <% @current_user_room.length.times do |i| %>
-      <%# もしターゲットになるそれぞれのユーザーが持つルームの配列が、現在接続中のユーザーの持っているroomのどれかを含めている場合 %>
-      <% if @target_user_room.include?(@current_user_room[i]) %>
-      <%# そのroomへリンクさせる %>
-      <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),room_messages_path(@both_room[0]) if user.avatar.attached? %>
-      <%# そうではなく、現在接続したユーザーのroomとターゲット（全てのユーザーそれぞれのルーム）の共通するroomがない場合 %>
-      <% elsif @both_room.empty?%>
-      <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_room_path(user.id) if user.avatar.attached? && i == 0%>
+  <div class="members">
+    &nbsp;&nbsp;<b class="caption">Members&#9835;</b>
+    
+    <% @users.each do |user| %>
+      <%# 現在のユーザーが持っているroomとそれぞれのユーザーが持っているroomの共通するroomがある場合、roomが生成されたのであるのでそのpathへlink。その他はroomが存在しないので新しくroomを生成するpathへ誘導 %>
+      <% @current_user_room = RoomUser.all.where(user_id: current_user.id).pluck(:room_id) %>
+      <% @target_user_room = RoomUser.all.where(user_id: user.id).pluck(:room_id) %>
+      <% @both_room = @current_user_room & @target_user_room %>
+    
+      <div class="member_avatar">
+      <%# @current_user_roomに何も無ければ新規チャットルームのリンクが現れる %>
+      <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_room_path(user.id) if user.avatar.attached? && @current_user_room.empty? %>
+      <%# @current_user_roomの配列の要素の数、つまり@current_user_roomを全てループさせる。i=0~lengthまで %>
+      <% @current_user_room.length.times do |i| %>
+        <%# もしターゲットになるそれぞれのユーザーが持つルームの配列が、現在接続中のユーザーの持っているroomのどれかを含めている場合 %>
+        <% if @target_user_room.include?(@current_user_room[i]) %>
+        <%# そのroomへリンクさせる %>
+        <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),room_messages_path(@both_room[0]) if user.avatar.attached? %>
+        <%# そうではなく、現在接続したユーザーのroomとターゲット（全てのユーザーそれぞれのルーム）の共通するroomがない場合 %>
+        <% elsif @both_room.empty?%>
+        <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_room_path(user.id) if user.avatar.attached? && i == 0%>
+        <% end %>
       <% end %>
+      </div>
+    <% end %>      
+    <%= paginate @users, param_name: 'users_page' %>
+  </div>
+
+  <div class="admin_chat">
+    &nbsp;&nbsp;<b class="caption">Admin&#9834;</b>
+    <% if @target_adminroom.where(user_id:current_user.id).pluck(:id)[0].present? %>
+    <%= link_to image_tag('admin.png', :size => '40x40'), adminroom_adminmessages_path(@adminrooms[0].id), class: 'create_admin_chatroom' %>
+    <% else %>
+    <%= link_to image_tag('admin.png', :size => '40x40'),new_adminroom_path(current_user.id), class: 'create_admin_chatroom' %>
     <% end %>
-    </div>
-  <% end %>
-
-  <%= paginate @users, param_name: 'users_page' %>
-</div>
-
-<div class="admin_chat">
-  &nbsp;&nbsp;<b class="caption">Admin&#9834;</b>
-  <% if @target_adminroom.where(user_id:current_user.id).pluck(:id)[0].present? %>
-  <%= link_to image_tag('admin.png', :size => '40x40'), adminroom_adminmessages_path(@adminrooms[0].id), class: 'create_admin_chatroom' %>
-  <% else %>
-  <%= link_to image_tag('admin.png', :size => '40x40'),new_adminroom_path(current_user.id), class: 'create_admin_chatroom' %>
-  <% end %>
-</div>
+  </div>
 <% end %>
 
-
-
 <% if admin_signed_in? %>
-<div class="members">
-  &nbsp;&nbsp;<b class="caption">Members&#9835;</b>
-  <% @users.each_with_index do |user, i| %>
-  <div class="member_avatar">
-     <%#= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_adminroom_path(user.id) if user.avatar.attached? %>
-    <% if @target_adminroom.where(user_id:user.id).pluck(:id)[0].present? %>
-    <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'), adminroom_adminmessages_path(@target_room[i]) if user.avatar.attached? %>
-    <% else %>
-    <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'), new_adminroom_path(user.id) if user.avatar.attached? %>
+  <div class="members">
+    &nbsp;&nbsp;<b class="caption">Members&#9835;</b>
+    <% @users.each_with_index do |user, i| %>
+    <div class="member_avatar">
+       <%#= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'),new_adminroom_path(user.id) if user.avatar.attached? %>
+      <% if @target_adminroom.where(user_id:user.id).pluck(:id)[0].present? %>
+      <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'), adminroom_adminmessages_path(@target_room[i]) if user.avatar.attached? %>
+      <% else %>
+      <%= link_to image_tag(user.avatar.variant(resize: '80x80'),class: 'member_image'), new_adminroom_path(user.id) if user.avatar.attached? %>
+      <% end %>
+    </div>
     <% end %>
-    
+    <%= paginate @users, param_name: 'users_page' %>
   </div>
-  <% end %>
-  <%= paginate @users, param_name: 'users_page' %>
-</div>
-
 <% end %>
 
 
