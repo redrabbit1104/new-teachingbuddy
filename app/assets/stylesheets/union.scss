@@ -233,34 +233,31 @@ $fcolor: rgb(247, 158, 158);
   grid-row-gap: 5px;
   row-gap: 5px;
   height: 120px;
-  width: 390px;
   padding: 20px;
-}
-.pagination {
-  grid-column: 1/6;
-  grid-row: 3/4;
-  width: 390px;
-  padding-left: 90px;
-}
-
-.member_avatar {
-  width: 50px;
-  height: 50px;
-  grid-row: 2/3;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.member_image {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: solid 2px rgb(244, 197, 87);
-  &:hover {
-    opacity: 0.5;
+  .caption {
+    grid-row: 1/2;
+  }
+  &_avatar {
+    grid-row: 2/3;
+    &_image {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      border: solid 2px rgb(244, 197, 87);
+      &:hover {
+        opacity: 0.5;
+      }
+    }
+  }
+  .pagination {
+    grid-column: 1/6;
+    grid-row: 3/4;
+    width: 390px;
+    padding-left: 90px;
   }
 }
-.admin_chat {
+
+.contact_admin {
   display: grid;
   grid-template-columns: 50px 50px 50px 50px 50px 50px;
   grid-template-rows: 20px 50px 50px;
@@ -273,34 +270,22 @@ $fcolor: rgb(247, 158, 158);
   margin-top: 20px;
   padding: 20px;
   border-top: rgba(0, 0, 0, 0.4) solid 1px;
-}
-
-.create_admin_chatroom {
-  width: 50px;
-  height: 50px;
-  grid-row: 2/3;
-  grid-column: 1/2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  border: solid 2px rgb(244, 197, 87);
-  &:hover {
-    opacity: 0.5;
+  .caption {
+    grid-row: 1/2;
   }
-}
-
-.admin_chatroom {
-  grid-row: 3/4;
-  &:hover {
-    opacity: 0.5;
+  .admin_avatar_image {
+    grid-column: 1/2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: solid 2px #f4c557;
+    &:hover {
+      opacity: 0.5;
+    }
   }
-}
-
-.caption {
-  grid-row: 1/2;
 }
 
 //掲示板のテーブル
