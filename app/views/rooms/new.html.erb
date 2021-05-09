@@ -1,14 +1,19 @@
-<span id="new_user_chat_title">New Chat</span> 
+<section class="title_wrapper">  
+  <div class="chat_title">
+    <h1>New Chat</h1>
+  </div>
+</section>
 
-<div class="message_wrapper">
-  <%= image_tag(@new_room_users.find(params[:format]).avatar.variant(resize: '200x200'),id: 'user_chat_title_image') %>
-  <div class="new_user_chat_name">
+<section class="room_wrapper">
+  <%= image_tag(@new_room_users.find(params[:format]).avatar.variant(resize: '200x200'),class: 'chat_avatar_image') %>
+  <div class="chat_avatar_name">
     <%= @new_room_users.find(params[:format]).last_name %>&nbsp;&nbsp;&nbsp;<%= @new_room_users.find(params[:format]).first_name %>
   </div>
   <%=form_with model: @room, local: true do |f|%>
     <input name="room[user_ids][]" type="hidden" value=<%= current_user.id %>>
     <input name="room[user_ids][]" type="hidden" value=<%= params[:format]%>>
-  <div id="create_button_container">
-    <%= f.submit '新しいチャットルームを作る',class: 'form_button' %>
-  </div> <% end %>
-</div>
+  <div class="create_new_chat_room">
+    <%= f.submit '新しいチャットルームを作る',class: 'create_room_button' %>
+  </div>
+  <% end %>
+</section>

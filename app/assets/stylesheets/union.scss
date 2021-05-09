@@ -222,7 +222,7 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-////サイドメニューmembers ここから
+////サイドメニューmembers
 
 .members {
   display: grid;
@@ -428,23 +428,9 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
-#back {
-  text-align: center;
-  width: 60px;
-  display: block;
-  border-radius: 5px;
-  padding: 5px;
-  transition: color 1s;
-  box-shadow: 2px 2px 3px;
-  margin: 30px auto;
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-}
+// 新しいuser chat room生成画面
 
-#user_chat_title,
-#new_user_chat_title {
+.chat_title {
   color: rgb(240, 137, 40);
   display: block;
   margin: 30px auto;
@@ -455,37 +441,7 @@ $fcolor: rgb(247, 158, 158);
   font-size: 20px;
 }
 
-#user_chat_title_image {
-  display: block;
-  margin: 30px auto 15px;
-  width: 250px;
-  height: 250px;
-  border-radius: 50%;
-}
-
-.admin_border {
-  border: 3px solid rgb(240, 137, 40);
-}
-
-#user_chat_name {
-  display: inline-block;
-  height: 25px;
-  padding-top: 3px;
-}
-
-#create_button_container {
-  margin: 30px auto 15px;
-  width: 250px;
-  text-align: center;
-}
-
-.new_user_chat_name {
-  margin: 0 auto;
-  width: 250px;
-  text-align: center;
-}
-
-.message_wrapper {
+.room_wrapper {
   display: block;
   width: 700px;
   height: 500px;
@@ -493,6 +449,34 @@ $fcolor: rgb(247, 158, 158);
   border: 1px solid;
   padding: 20px;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
+  .chat_avatar_image {
+    display: block;
+    margin: 30px auto 15px;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+  }
+  #admin_border {
+    border: 3px solid rgb(240, 137, 40);
+  }
+  .chat_avatar_name {
+    text-align: center;
+  }
+  .create_new_chat_room {
+    margin: 30px auto 15px;
+    text-align: center;
+    .create_room_button {
+      margin-left: 10px;
+      border-radius: 5px;
+      padding: 5px;
+      transition: color 1s;
+      box-shadow: 2px 2px 3px;
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
+  }
   .messages {
     overflow: scroll;
     height: 420px;
@@ -535,6 +519,27 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
+// #back {
+//   text-align: center;
+//   width: 60px;
+//   display: block;
+//   border-radius: 5px;
+//   padding: 5px;
+//   transition: color 1s;
+//   box-shadow: 2px 2px 3px;
+//   margin: 30px auto;
+//   &:hover {
+//     background-color: black;
+//     color: white;
+//   }
+// }
+
+#user_chat_name {
+  display: inline-block;
+  height: 25px;
+  padding-top: 3px;
+}
+
 .form_message {
   border: 1px solid;
   width: 550px;
@@ -542,22 +547,6 @@ $fcolor: rgb(247, 158, 158);
   padding: 5px 8px;
   &:focus {
     background-color: #eee;
-  }
-}
-
-.form_button {
-  margin-left: 10px;
-  border: 1px solid;
-  border-radius: 5px;
-  padding: 5px;
-  transition: color 1s;
-  box-shadow: 2px 2px 3px;
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-  &#form_end {
-    margin-left: 40px;
   }
 }
 
