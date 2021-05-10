@@ -515,7 +515,6 @@ $fcolor: rgb(247, 158, 158);
     padding: 10px;
     border-radius: 10px;
     border: solid 1px purple;
-    display: flex;
   }
 }
 
@@ -534,6 +533,17 @@ $fcolor: rgb(247, 158, 158);
 //   }
 // }
 
+.form_button {
+  margin-left: 10px;
+  border-radius: 5px;
+  padding: 5px;
+  transition: color 1s;
+  box-shadow: 2px 2px 3px;
+  &:hover {
+    opacity: 0.5;
+  }
+}
+
 #user_chat_name {
   display: inline-block;
   height: 25px;
@@ -548,14 +558,17 @@ $fcolor: rgb(247, 158, 158);
   &:focus {
     background-color: #eee;
   }
+  .form_image {
+    margin-left: auto 5px;
+    padding: 2px;
+    &:hover {
+      opacity: 0.4;
+    }
+  }
 }
 
-.form_image {
-  margin-left: auto 5px;
-  padding: 2px;
-  &:hover {
-    opacity: 0.6;
-  }
+.hidden {
+  display: none;
 }
 
 .chat_member_image {
@@ -1399,10 +1412,6 @@ input[type="date"] {
     margin: 20px auto;
     text-align: center;
   }
-}
-
-.hidden {
-  display: none;
 }
 
 /* registration.html.erbレイアウトのbodyタグのサイズ */

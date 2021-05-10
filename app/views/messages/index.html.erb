@@ -1,22 +1,24 @@
-<span id="user_chat_title">チャットルーム</span> 
-  <div class="message_wrapper">
-    <div class="messages">
-      <%= render partial: 'message', collection: @messages %>
-    </div>
+<section class="title_wrapper">  
+  <div class="chat_title">
+    <h1>チャットルーム</h1>
+  </div>
+</section>
 
-    <div class="chat_form_wrapper">
-      <%= form_with model: [@room, @message], class: 'chat_form', local: true do |f| %>
-      <div class="form_input">
+
+<section class="room_wrapper">
+  <div class="messages">
+     <%= render partial: 'message', collection: @messages %>
+  </div>
+
+  <div class="chat_form_wrapper">
+    <%= form_with model: [@room, @message], local: true do |f| %>
       <label class="form_image">
-          <span class="image_file">&#9834;</span>
+          <span>&#9834;</span>
           <%= f.file_field :image, class: 'hidden' %>
       </label>
         <%= f.text_field :content, class: 'form_message', placeholder: 'Type a Message' %>
       
       <%= f.submit '送信', class: 'form_button' %>
-     
-      <% end %>
-      </div>
-      <%#= button_to "チャットを終了する",room_path(params[:room_id]),method: :delete %>
-    </div>
+    <% end %>
   </div>
+</section>
