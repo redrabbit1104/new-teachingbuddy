@@ -477,7 +477,7 @@ $fcolor: rgb(247, 158, 158);
       }
     }
   }
-  .messages {
+  .message_wrapper {
     overflow: scroll;
     height: 420px;
     .message {
@@ -515,32 +515,35 @@ $fcolor: rgb(247, 158, 158);
     padding: 10px;
     border-radius: 10px;
     border: solid 1px purple;
-  }
-}
-
-// #back {
-//   text-align: center;
-//   width: 60px;
-//   display: block;
-//   border-radius: 5px;
-//   padding: 5px;
-//   transition: color 1s;
-//   box-shadow: 2px 2px 3px;
-//   margin: 30px auto;
-//   &:hover {
-//     background-color: black;
-//     color: white;
-//   }
-// }
-
-.form_button {
-  margin-left: 10px;
-  border-radius: 5px;
-  padding: 5px;
-  transition: color 1s;
-  box-shadow: 2px 2px 3px;
-  &:hover {
-    opacity: 0.5;
+    .chat_form_image_button {
+      padding: 2px;
+      &:hover {
+        opacity: 0.4;
+      }
+      .hidden {
+        display: none;
+      }
+    }
+    .type_message {
+      border: 1px solid;
+      width: 550px;
+      text-align: left;
+      padding: 5px 8px;
+      &:focus {
+        background-color: #eee;
+      }
+    }
+    .chat_form_button {
+      margin-left: 10px;
+      border-radius: 5px;
+      padding: 5px;
+      transition: color 1s;
+      box-shadow: 2px 2px 3px;
+      &:hover {
+        background-color: black;
+        color: white;
+      }
+    }
   }
 }
 
@@ -548,27 +551,6 @@ $fcolor: rgb(247, 158, 158);
   display: inline-block;
   height: 25px;
   padding-top: 3px;
-}
-
-.form_message {
-  border: 1px solid;
-  width: 550px;
-  text-align: left;
-  padding: 5px 8px;
-  &:focus {
-    background-color: #eee;
-  }
-  .form_image {
-    margin-left: auto 5px;
-    padding: 2px;
-    &:hover {
-      opacity: 0.4;
-    }
-  }
-}
-
-.hidden {
-  display: none;
 }
 
 .chat_member_image {
