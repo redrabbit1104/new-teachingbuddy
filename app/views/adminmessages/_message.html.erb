@@ -1,30 +1,26 @@
-<div class="message">
-  <div class="message_user_wrapper">
-    <div class="message_user">
-      <!-- 投稿したユーザー名情報を出力する -->
-        <% if message.flag == 1 %>
-        <%= image_tag('admin.png', :size => '40x40',class: 'chat_member_image') %>
-        <span id="user_chat_name"><%= message.admin.admin_last_name %></span>
-        <% else %>
-        <%= image_tag(message.user.avatar.variant(resize: '30x30'),class: 'chat_member_image') %>
-        <span id="user_chat_name"><%= message.user.last_name %></span>
-        <% end %>
-    </div>
+<section class="message_container">
+  <div class="message_avatar_wrapper">
+    <!-- 投稿したユーザー名情報を出力する -->
+    <% if message.flag == 1 %>
+      <%= image_tag('admin.png', :size => '40x40',class: 'message_avatar') %>
+      <span class="message_avatar_name"><%= message.admin.admin_last_name %></span>
+    <% else %>
+      <%= image_tag(message.user.avatar.variant(resize: '30x30'),class: 'message_avatar') %>
+      <span class="message_avatar_name"><%= message.user.last_name %></span>
+    <% end %>
   </div>
 
-   
-
-  <div class="main_message">
-    <div class="message_content">
-      <!-- 投稿したメッセージ内容を記述する -->
-      <%= image_tag message.image.variant(resize: '100x100'), class: 'message_image' if message.image.attached? %>
-       <div class="user_message_container">
-         <span id="message_letter"><%= message.content %></span>
-         <div class="message_date">
-         <!-- 投稿した時刻を出力する -->
-         <%=l message.created_at %>
-         </div>
-      </div>
-    </div>
+  <div class="message_content_wrapper">
+    <!-- 投稿したメッセージ内容を記述する -->
+    <%= image_tag message.image.variant(resize: '100x100'), class: 'content_image' if message.image.attached? %>
+      <div class="message_content_container">
+        <span class="content_letter">
+          <%= message.content %>
+        </span>
+        <div class="message_date">
+          <!-- 投稿した時刻を出力する -->
+          <%=l message.created_at %>
+        </div>
+     </div>
   </div>
-</div>
+</section>

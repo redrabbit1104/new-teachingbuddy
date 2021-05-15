@@ -8,7 +8,7 @@
     <!-- 投稿したメッセージ内容を記述する -->
     <%= image_tag message.image.variant(resize: '100x100'), class: 'content_image' if message.image.attached? %>
     <div class="message_content_container">
-      <span class="message_letter">
+      <span class="content_letter">
         <%= message.content %>
       </span>
       <div class="message_date">
