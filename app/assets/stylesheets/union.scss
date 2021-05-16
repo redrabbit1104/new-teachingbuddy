@@ -551,6 +551,7 @@ $fcolor: rgb(247, 158, 158);
     }
   }
 }
+//ここまで
 
 body {
   margin: 0;
@@ -795,7 +796,7 @@ input[type="date"] {
 }
 
 #schedule_table {
-  margin: auto;
+  margin: 30px auto 20px;
   width: 1200px;
   height: 1000px;
   & tr {
