@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
-  layout 'registration'
+  layout 'common'
+  
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
   before_action :set_check, only: [:show]
 

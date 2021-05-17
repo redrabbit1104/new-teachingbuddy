@@ -9,20 +9,15 @@
     <title>Teachingbuddy</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-    <%# font-awesomeの導入 %>
-    <script defer src="https://use.fontawesome.com/releases/v5.0.10/js/all.js" integrity="sha384-slN8GvtUJGnv6ca26v8EzVaR9DC58QEwsIk9q1QXdCU8Yu8ck/tL/5szYlBbqmS+" crossorigin="anonymous"></script>
-    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.css" rel="stylesheet">  
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
 
-  <div id="regi_wrapper">
-  <%= render "shared/header"%>
-    <%= yield %>
-
-  </div>
+      <%= render "shared/header"%>
+      <%= yield %>
+      
   </body>
   
 </html>

@@ -42,6 +42,12 @@ $fcolor: rgb(247, 158, 158);
   }
 }
 
+/* registration.html.erbレイアウトのbodyタグのサイズ */
+
+#admin_container {
+  height: 630px;
+}
+
 /* サイドメニュー */
 //サイトメニューupper
 
@@ -561,21 +567,37 @@ body {
   font-family: "Noto Sans JP", sans-serif;
 }
 
+.date_today {
+  margin: 20px auto 15px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.date_next {
+  margin: auto;
+  width: 100px;
+  height: 30px;
+  margin-top: 20px;
+  font-size: 15px;
+  border-radius: 5px;
+  background-color: #4ed19a;
+  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
+  &:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+  & > a {
+    padding-top: 5px;
+    display: inline-block;
+  }
+}
+
 .board {
   width: calc(100vw - 350px);
   height: 100vh;
   /* border: solid 1px; */
   padding: 20px;
   float: left;
-}
-
-.schedule_title {
-  text-align: center;
-  color: $title_color;
-  font-size: 30px;
-  border-bottom: solid 2px;
-  width: 300px;
-  margin: 30px auto 3px auto;
 }
 
 #schedule_title {
@@ -719,13 +741,6 @@ input[type="date"] {
   height: 40px;
   th {
     padding-top: 10px;
-  }
-}
-
-.date_today {
-  &.schedule {
-    margin-bottom: 70px;
-    font-size: 40px;
   }
 }
 
@@ -918,25 +933,6 @@ input[type="date"] {
   max-height: 250px;
 }
 
-.date_next {
-  margin: auto;
-  width: 100px;
-  height: 30px;
-  margin-top: 20px;
-  font-size: 15px;
-  border-radius: 5px;
-  background-color: #4ed19a;
-  box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.4);
-  &:hover {
-    opacity: 0.6;
-    cursor: pointer;
-  }
-  & > a {
-    padding-top: 5px;
-    display: inline-block;
-  }
-}
-
 .date_previous {
   margin: auto;
   width: 100px;
@@ -995,21 +991,6 @@ input[type="date"] {
       margin-top: 10px;
     }
   }
-}
-
-.schedule_title {
-  text-align: center;
-  color: $title_color;
-  font-size: 30px;
-  border-bottom: solid 2px;
-  width: 300px;
-  margin: 30px auto 3px auto;
-}
-
-.date_today {
-  margin: 20px auto 15px;
-  text-align: center;
-  font-size: 20px;
 }
 
 #todays_date {
@@ -1387,62 +1368,6 @@ input[type="date"] {
     width: 150px;
     margin: 20px auto;
     text-align: center;
-  }
-}
-
-/* registration.html.erbレイアウトのbodyタグのサイズ */
-
-#regi_wrapper {
-  width: 100vw;
-  height: 610px;
-}
-
-#admin_container {
-  height: 630px;
-}
-
-.registration_footer {
-  position: relative;
-  margin-top: 110px;
-  .footer {
-    display: block;
-    width: 100vw;
-    height: 20px;
-    border-top: 1px solid;
-    height: 5%;
-    .registration_footer_text {
-      text-align: center;
-      padding-top: 10px;
-      font-weight: 600;
-      #T {
-        color: red;
-      }
-      #B {
-        color: red;
-      }
-    }
-  }
-}
-
-.regi_footer {
-  position: relative;
-  .footer {
-    display: block;
-    width: 100vw;
-    height: 100px;
-    border-top: 1px solid;
-    height: 5%;
-    .regi_footer_text {
-      text-align: center;
-      padding-top: 10px;
-      font-weight: 600;
-      #T {
-        color: red;
-      }
-      #B {
-        color: red;
-      }
-    }
   }
 }
 

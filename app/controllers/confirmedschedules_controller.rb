@@ -1,5 +1,5 @@
 class ConfirmedschedulesController < ApplicationController
-  layout 'registration'
+  layout 'common'
 
 def index
   @sdate_all = Sdate.all

@@ -1,5 +1,5 @@
 class RegistrationsController < ApplicationController
   def users
-    render :layout => 'registration'
+    render :layout => 'common'
   end
 end
