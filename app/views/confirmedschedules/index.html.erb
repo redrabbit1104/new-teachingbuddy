@@ -4,9 +4,9 @@
   </div>
 </section>
 
-<section class="date_today">
+<section class="date_container">
   <%= @this_year %>年<%= @this_month %>月
-  <div class="date_next">
+  <div class="change_month">
     <%= link_to "#{@this_month+1}月へ", new_confirmedschedule_path, method: :get %>
   </div>
 </section>
