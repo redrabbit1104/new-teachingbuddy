@@ -1,6 +1,8 @@
-<div class="schedule_title">
-  <h1>Schedule Board</h1>
-</div>
+<section class="title_wrapper">
+  <div class="title">
+     <h1>Schedule Board</h1>
+  </div>
+</section>
 
 <% if user_signed_in? %>
 <div class="schedule_title_wrapper">
@@ -25,16 +27,12 @@
   <% end %>
 </div>
 
-<div class="schedlues_wrapper">
-  <div class="new_schedule_wrapper">
-    <div class="date_today">
-      <%= @this_year %>年<%= @this_month %>月
-      <div class="date_next">
+<section class="date_container">
+  <%= @this_year %>年<%= @this_month %>月
+  <div class="change_month">
         <%= link_to "#{@this_month+1}月へ", nextschedules_path, method: :get %>
-      </div>
-    </div>
-
-
+  </div>
+</section>
 
     <table border="1" id="schedule_table">
       <thead>
@@ -303,10 +301,6 @@
 
       </tbody>
     </table>
-  </div>
-
-
-</div>
 
 <section class="footer_wrapper">
   <%= render "shared/footer"%>

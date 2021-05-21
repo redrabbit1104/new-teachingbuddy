@@ -1,15 +1,15 @@
-<div class="schedule_title">
-  <h1>授業新規登録</h1>
-</div>
+<section class="title_wrapper">
+  <div class="title">
+     <h1>授業新規登録</h1>
+  </div>
+</section>
 
-<div class="schedlues_wrapper">
-  <div class="new_schedule_wrapper">
-    <div class="date_today schedule">
-      <% if @this_year == Time.current.next_month.year %><%= @this_year %><% else %><%= (@this_year + 1) %><% end %>年<%= @next_month %>月
-      <div class="date_previous">
-        <%= link_to "#{@this_month}月へ戻る", new_schedule_path, method: :get %>
-      </div>
-    </div>
+<section class="date_container">
+  <% if @this_year == Time.current.next_month.year %><%= @this_year %><% else %><%= (@this_year + 1) %><% end %>年<%= @next_month %>月
+  <div class="change_month">
+    <%= link_to "#{@this_month}月へ戻る", new_schedule_path, method: :get %>
+  </div>
+</section>
 
 
     <table border="1" id="schedule_table">
@@ -202,10 +202,7 @@
 
       </tbody>
     </table>
-  </div>
 
-
-</div>
 <section class="footer_wrapper">
   <%= render "shared/footer"%>
 </section>
