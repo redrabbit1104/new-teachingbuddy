@@ -565,6 +565,93 @@ body {
   }
 }
 
+//registration ここから
+
+.common_container {
+  margin-bottom: 70px;
+  .account_title_wrapper {
+    text-align: center;
+    font-size: 30px;
+    .account_title {
+      color: $fcolor;
+      margin: 30px auto 0px;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
+    }
+  }
+  .account_edit_form {
+    width: 50vw;
+    height: 750px;
+    margin: 50px auto;
+    padding-top: 10px;
+    box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
+    border-radius: 5%;
+    .selection_form_wrapper {
+      width: 40vw;
+      margin: 10px auto;
+      font-size: 20px;
+    }
+  }
+}
+
+.field_container {
+  height: 80px;
+  margin: 30px auto;
+}
+.user1_field {
+  height: 80px;
+  margin-top: 20px;
+}
+.user2_field {
+  height: 80px;
+  margin: 10px auto 20px;
+}
+
+.form_caption {
+  height: 50px;
+  margin-bottom: 10px;
+  text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
+  font-weight: 600;
+}
+
+.form_text_wrap {
+  margin-bottom: 10px;
+}
+
+.input_field {
+  width: 40vw;
+  height: 40px;
+  padding: 10px 16px 8px;
+  &:focus {
+    background-color: #eee;
+  }
+}
+
+.avatar_input_field {
+  border: 1px solid;
+  width: 75px;
+  height: 45px;
+  padding: 10px 16px 10px;
+  &:hover {
+    background-color: #eee;
+  }
+}
+
+.input_field {
+  border: 1px solid;
+  &#last_name {
+    width: 150px;
+  }
+  &#first_name {
+    width: 150px;
+  }
+}
+
+.btn_wrapper {
+  margin-top: 30px;
+  text-align: center;
+}
+
 .date_container {
   text-align: center;
   font-size: 20px;
@@ -1050,23 +1137,6 @@ input[type="date"] {
 }
 /* ユーザーログイン画面 */
 
-.user_admin_title_wrapper {
-  width: 434px;
-  height: 10vh;
-  text-align: center;
-  font-size: 30px;
-  margin: 0 auto;
-}
-
-.user_admin_title {
-  color: $fcolor;
-  display: block;
-  margin: 30px auto 0px;
-  width: 434px;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
-}
-
 .registration-main {
   width: 50vw;
   height: 380px;
@@ -1098,69 +1168,11 @@ input[type="date"] {
   font-size: 20px;
 }
 
-.selection_form_wrap {
-  width: 40vw;
-  height: 700px;
-  margin: 10px auto;
-  font-size: 20px;
-}
-
 .regi_form_wrap {
   width: 40vw;
   height: 500px;
   margin: 10px auto;
   font-size: 20px;
-}
-
-.field_wrapper {
-  height: 300px;
-  .field {
-    height: 80px;
-    margin: 30px auto;
-  }
-  .user1_field {
-    height: 80px;
-    margin-top: 20px;
-  }
-  .user2_field {
-    height: 80px;
-    margin: 10px auto 20px;
-  }
-}
-
-.form_caption {
-  height: 50px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
-  font-weight: 600;
-}
-
-.form_text_wrap {
-  margin-bottom: 10px;
-}
-
-.input_field {
-  width: 40vw;
-  height: 40px;
-  padding: 10px 16px 8px;
-  &:focus {
-    background-color: #eee;
-  }
-}
-
-.avatar_input_field {
-  border: 1px solid;
-  width: 75px;
-  height: 45px;
-  padding: 10px 16px 10px;
-  &:hover {
-    background-color: #eee;
-  }
-}
-
-.btn_wrapper {
-  margin-top: 30px;
-  text-align: center;
 }
 
 .new_btn_wrapper {
@@ -1226,27 +1238,12 @@ input[type="date"] {
   }
 }
 
-.input_field {
-  border: 1px solid;
-  &#last_name {
-    width: 150px;
-  }
-  &#first_name {
-    width: 150px;
-  }
-}
-
 .log_container {
   text-align: center;
 }
 
 #user_container {
   height: 750px;
-}
-
-#user_regi_container {
-  position: relative;
-  height: 1250px;
 }
 
 .regi_selection_wrap {
@@ -1260,15 +1257,6 @@ input[type="date"] {
   width: 50vw;
   height: 1000px;
   margin: 0 auto;
-  padding-top: 10px;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
-  border-radius: 5%;
-}
-
-.regi_edit_form {
-  width: 50vw;
-  height: 750px;
-  margin: 50px auto;
   padding-top: 10px;
   box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
   border-radius: 5%;

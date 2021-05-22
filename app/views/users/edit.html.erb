@@ -1,11 +1,12 @@
-<div id="user_regi_container" style="height:800px;">
-<div class="user_admin_title_wrapper">
-  <span class="user_admin_title">アカウント管理</span>
-</div>
- <%= form_with model: current_user, class: 'regi_edit_form', method: :patch, local: true do |f| %> 
-  <div class="selection_form_wrap">
-    <div class="field_wrapper"> 
-     <div class="field">
+<section class="account_title_wrapper">
+  <div class="account_title">
+     <h1>アカウント管理</h1>
+  </div>
+</section>
+
+<%= form_with model: current_user, class: 'account_edit_form', method: :patch, local: true do |f| %> 
+  <div class="selection_form_wrapper">
+    <div class="field_container">
        <div class='form_text_wrap'>
         <label class="form_caption">ユーザーネーム</label>
        </div>
@@ -42,10 +43,5 @@
       <div class="btn_wrapper">
       <%= link_to "Back", :back, class: 'back_btn'%>
       </div>
-      </div>
+  </div>
 <% end %>
-</div>
-
-<section class="footer_wrapper">
-  <%= render "shared/footer"%>
-</section>
