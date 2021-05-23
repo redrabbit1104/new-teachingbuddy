@@ -565,8 +565,6 @@ body {
   }
 }
 
-//registration ここから
-
 .common_container {
   margin-bottom: 70px;
   .account_title_wrapper {
@@ -590,14 +588,63 @@ body {
       width: 40vw;
       margin: 10px auto;
       font-size: 20px;
+      .field_container {
+        height: 80px;
+        margin: 30px auto;
+        .form_caption {
+          text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
+          font-weight: 600;
+          display: block;
+          margin-bottom: 10px;
+        }
+        .input_field {
+          width: 40vw;
+          height: 40px;
+          padding: 10px 16px 8px;
+          border: 1px solid;
+          &#last_name {
+            width: 150px;
+          }
+          &#first_name {
+            width: 150px;
+          }
+          &:focus {
+            background-color: #eee;
+          }
+        }
+      }
     }
   }
 }
 
-.field_container {
-  height: 80px;
-  margin: 30px auto;
+.btn_wrapper {
+  margin-top: 30px;
+  text-align: center;
+  .form_btn {
+    padding: 10px 40px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: color 1s;
+    border-radius: 20px;
+    background: linear-gradient(70deg, rgb(238, 28, 143), rgb(235, 228, 28));
+    box-shadow: 4px 5px 5px 0px;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+    .back_btn {
+      cursor: pointer;
+      font-weight: 600;
+      text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
+      &:hover {
+        opacity: 0.6;
+      }
+    }
+  }
 }
+
+//ここから
+
 .user1_field {
   height: 80px;
   margin-top: 20px;
@@ -605,26 +652,6 @@ body {
 .user2_field {
   height: 80px;
   margin: 10px auto 20px;
-}
-
-.form_caption {
-  height: 50px;
-  margin-bottom: 10px;
-  text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
-  font-weight: 600;
-}
-
-.form_text_wrap {
-  margin-bottom: 10px;
-}
-
-.input_field {
-  width: 40vw;
-  height: 40px;
-  padding: 10px 16px 8px;
-  &:focus {
-    background-color: #eee;
-  }
 }
 
 .avatar_input_field {
@@ -635,21 +662,6 @@ body {
   &:hover {
     background-color: #eee;
   }
-}
-
-.input_field {
-  border: 1px solid;
-  &#last_name {
-    width: 150px;
-  }
-  &#first_name {
-    width: 150px;
-  }
-}
-
-.btn_wrapper {
-  margin-top: 30px;
-  text-align: center;
 }
 
 .date_container {
@@ -674,8 +686,6 @@ body {
     }
   }
 }
-
-//ここまで
 
 #schedule_title {
   color: rgb(240, 137, 40);
@@ -1178,39 +1188,6 @@ input[type="date"] {
 .new_btn_wrapper {
   margin: 40px auto 40px;
   text-align: center;
-}
-
-.login_btn {
-  background-color: white;
-  text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
-  color: black;
-  padding: 10px 40px;
-  margin: 5px auto 5px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: color 1s;
-  border-radius: 20px;
-  background: linear-gradient(70deg, rgb(238, 28, 143), rgb(235, 228, 28));
-  box-shadow: 4px 5px 5px 0px;
-  &:hover {
-    background-color: black;
-    color: white;
-  }
-}
-
-.back_btn {
-  cursor: pointer;
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(149, 150, 150, 0.5);
-  &:hover {
-    opacity: 0.6;
-  }
-}
-
-.btn_wrapper {
-  height: 60px;
-  margin-bottom: 30px;
-  padding-bottom: 20px;
 }
 
 .teacher_btn_wrapper {
