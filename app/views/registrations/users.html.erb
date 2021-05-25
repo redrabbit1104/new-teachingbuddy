@@ -1,22 +1,26 @@
-<div class="user_admin_title_wrapper">
-  <span class="user_admin_title">新規登録</span>
-</div>
+<section class="common_container">
+  <section class="account_title_wrapper">
+    <div class="account_title">
+       <h1>新規登録</h1>
+    </div>
+  </section>
 
-<div class="regi_new_form">
-  <div class="option_form_wrap">
-    <div class="field_wrapper"> 
-        <div class="new_btn_wrapper">
-         <%= link_to 'メールで登録',new_user_registration_path, class: 'email_login_btn', method: :get %>
+  <section class="account_form registration">
+    <div class="form_wrap">
+      <div class="selection_form_wrapper">
+        <div class="btn_wrapper">
+           <%= link_to 'メールで登録',new_user_registration_path, class: "form_btn", method: :get %>
         </div>
-      <div class="sns_up_container">
-        <p class="sign_up_with">Or sign up with</p>
-        <div class="sign_up_btns"><%= link_to 'Google', user_google_oauth2_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
-        <div class="sign_up_btns"><%= link_to 'Facebook', user_facebook_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
-        <div class="sign_up_btns"><%= link_to 'Twitter', user_twitter_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
+        <div class="sign_up_container">
+          <p class="sign_up_with">Or sign up with</p>
+          <div class="sign_up_btns"><%= link_to 'Google', user_google_oauth2_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
+          <div class="sign_up_btns"><%= link_to 'Facebook', user_facebook_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
+          <div class="sign_up_btns"><%= link_to 'Twitter', user_twitter_omniauth_authorize_path, class: 'sns_texts', method: :post %></div>
+        </div>
       </div>
     </div>
-  </div>
-</div>
+  </section>
+</section>
 
 <section class="footer_wrapper">
   <%= render "shared/footer"%>
