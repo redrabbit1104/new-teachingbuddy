@@ -609,6 +609,19 @@ body {
             background-color: #eee;
           }
         }
+        .avatar_input_field {
+          border: 1px solid;
+          width: 75px;
+          height: 45px;
+          padding: 10px 16px 10px;
+          margin-top: 10px;
+          .hidden {
+            display: none;
+          }
+          &:hover {
+            background-color: #eee;
+          }
+        }
       }
     }
   }
@@ -620,6 +633,9 @@ body {
   }
   .registration {
     height: 300px;
+  }
+  .mail_registration {
+    height: 980px;
   }
 }
 
@@ -683,16 +699,6 @@ body {
 }
 
 //ここから
-
-.avatar_input_field {
-  border: 1px solid;
-  width: 75px;
-  height: 45px;
-  padding: 10px 16px 10px;
-  &:hover {
-    background-color: #eee;
-  }
-}
 
 .date_container {
   text-align: center;
@@ -1193,15 +1199,6 @@ input[type="date"] {
   height: 800px;
   margin: 10px auto;
   font-size: 20px;
-}
-
-.regi_selection_form {
-  width: 50vw;
-  height: 1000px;
-  margin: 0 auto;
-  padding-top: 10px;
-  box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.4);
-  border-radius: 5%;
 }
 
 .user_signup_footer {
